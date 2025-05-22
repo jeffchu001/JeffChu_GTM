@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網站維護中 - Site Under Maintenance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .maintenance-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        .maintenance-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .message {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #f97316;
+        }
+
+        .message p {
+            margin-bottom: 0.8rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            width: 0%;
+            border-radius: 2px;
+            animation: loading 3s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .maintenance-container {
+                padding: 2rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="maintenance-container">
+        <div class="maintenance-icon">🔧</div>
+        
+        <h1>網站維護中</h1>
+        
+        <p class="subtitle">我們正在進行系統升級與維護</p>
+        
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        
+        <div class="message">
+            <p><strong>維護期間：</strong>預計 2-4 小時</p>
+            <p><strong>預計完成：</strong>今日晚間</p>
+            <p>感謝您的耐心等待，我們將盡快恢復服務。</p>
+        </div>
+        
+
+    </div>
+
+    <script>
+        // 自動重新整理功能 (可選)
+        // setTimeout(() => {
+        //     location.reload();
+        // }, 300000); // 5分鐘後重新整理
+        
+        // 顯示當前時間
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString('zh-TW');
+            document.title = `網站維護中 - ${timeString}`;
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
